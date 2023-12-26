@@ -1,0 +1,41 @@
+[package]
+name = "runtime"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+radiantkit-core = { git = "https://github.com/radiant-labs/radiantkit.git" }
+radiantkit-macros = { git = "https://github.com/radiant-labs/radiantkit.git" }
+radiantkit-winit = { git = "https://github.com/radiant-labs/radiantkit.git" }
+radiantkit-image = { git = "https://github.com/radiant-labs/radiantkit.git" }
+radiantkit-text = { git = "https://github.com/radiant-labs/radiantkit.git" }
+radiantkit-path = { git = "https://github.com/radiant-labs/radiantkit.git" }
+macro_magic = "0.5.0"
+serde = { version = "1.0", features = ["derive"] }
+epaint = { version = "0.22.0", features = ["bytemuck", "serde"] }
+parking_lot = { version = "0.12.1", features = ["serde"] }
+log = "0.4"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_log = "1.0"
+console_error_panic_hook = "0.1.6"
+serde-wasm-bindgen = "0.4"
+js-sys = "0.3.64"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4.30"
+web-sys = { version = "0.3", features = [
+    "Document",
+    "Window",
+    "Element",
+]}
+
+[dependencies.uuid]
+version = "1.6.1"
+features = [
+    "wasm-bindgen",
+    "serde",
+]
