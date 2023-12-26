@@ -1,4 +1,4 @@
-import { RadiantKitAppController, Vec3 } from "@radiantkit/runtime";
+import { RadiantKitAppController } from "@radiantkit/runtime";
 
 export class RadiantKitController {
     _controller: RadiantKitAppController;
